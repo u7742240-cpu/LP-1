@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LINEから申し込めるLP制作サービス</title>
+  <meta
+    name="description"
+    content="LINEから申し込みできるランディングページ制作サービス。初稿作成費1,000円、LP完成データ販売10,000円。料金・納期・返金ポリシー・特定商取引法表記を明確に掲載。"
+  />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="LINEから申し込めるLP制作サービス" />
+  <meta
+    property="og:description"
+    content="LINEから申し込み、ヒアリング後にLP初稿を作成。必要な方のみ完成データを購入できるLP制作サービスです。"
+  />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-sub: #eef2ff;
+      --white: #ffffff;
+      --text: #0f172a;
+      --text-sub: #475569;
+      --line: #22c55e;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --border: #dbe2ea;
+      --soft-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-sm {
+      padding: 48px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.25;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-lead {
+      margin: 0 auto 32px;
+      max-width: 760px;
+      color: var(--text-sub);
+      font-size: 1rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid rgba(219, 226, 234, 0.9);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text-sub);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.98rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--line), #16a34a);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 28%),
+        radial-gradient(circle at left top, rgba(34, 197, 94, 0.10), transparent 24%),
+        linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      margin: 0 0 26px;
+      color: var(--text-sub);
+      font-size: 1.04rem;
+      max-width: 640px;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-note-item,
+    .card,
+    .price-card,
+    .faq-item,
+    .contact-card,
+    .policy-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .hero-note-item {
+      padding: 16px;
+    }
+
+    .hero-note-item strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-note-item span {
+      color: var(--text-sub);
+      font-size: 0.92rem;
+    }
+
+    .hero-card {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .hero-card h2 {
+      font-size: 1.15rem;
+      margin: 0 0 16px;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: var(--text-sub);
+    }
+
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--line);
+      font-weight: 800;
+    }
+
+    .price-mini {
+      display: grid;
+      gap: 12px;
+    }
+
+    .price-mini div {
+      padding: 14px 16px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .price-mini strong {
+      font-size: 1rem;
+    }
+
+    .price-mini span {
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .cards-3,
+    .cards-4,
+    .pricing-grid,
+    .faq-grid,
+    .footer-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .cards-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cards-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: stretch;
+    }
+
+    .card {
+      padding: 26px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-sub);
+    }
+
+    .steps {
+      display: grid;
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #dbeafe, #dcfce7);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .step h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--text-sub);
+    }
+
+    .price-card {
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border: 1px solid #bfdbfe;
+      background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+    }
+
+    .price-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0c4a6e;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+
+    .price-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .price {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .price small {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      font-weight: 700;
+    }
+
+    .price-card p {
+      margin: 0 0 20px;
+      color: var(--text-sub);
+    }
+
+    .price-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .price-card li {
+      padding: 10px 0;
+      border-bottom: 1px solid #e5e7eb;
+      color: var(--text-sub);
+    }
+
+    .delivery-list li {
+      border: none;
+      padding: 0;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 26px;
+    }
+
+    .delivery-list li::before {
+      content: "・";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-item {
+      padding: 24px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--text-sub);
+    }
+
+    .policy-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .policy-box {
+      padding: 26px;
+    }
+
+    .policy-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .policy-box p {
+      margin: 0;
+      color: var(--text-sub);
+    }
+
+    .contact-card {
+      padding: 32px;
+      text-align: center;
+    }
+
+    .contact-card p {
+      margin: 0 0 18px;
+      color: var(--text-sub);
+    }
+
+    .legal-box {
+      margin-top: 24px;
+      padding: 18px 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--soft-shadow);
+      color: var(--text-sub);
+    }
+
+    .legal-box strong {
+      color: var(--text);
+    }
+
+    .cta-band {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+    }
+
+    .cta-band .section-title,
+    .cta-band .section-lead {
+      color: #fff;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .footer {
+      background: #0f172a;
+      color: rgba(255, 255, 255, 0.84);
+      padding: 40px 0 28px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.5fr 1fr;
+      align-items: start;
+      gap: 28px;
+    }
+
+    .footer h3 {
+      margin: 0 0 12px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .notice {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .cards-3,
+      .cards-4,
+      .pricing-grid,
+      .faq-grid,
+      .policy-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-note {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 56px 0;
+      }
+
+      .hero {
+        padding: 48px 0 32px;
+      }
+
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .step {
+        grid-template-columns: 56px 1fr;
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .price-card,
+      .card,
+      .faq-item,
+      .policy-box,
+      .contact-card,
+      .hero-card {
+        padding: 22px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">LINEから申し込めるLP制作サービス</div>
+      <nav class="nav" aria-label="グローバルナビゲーション">
+        <a href="#service">サービス内容</a>
+        <a href="#flow">制作の流れ</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <a href="https://lin.ee/UCROoCJ/" class="btn btn-primary" aria-label="LINEで申し込む">
+        LINEで申し込む
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ① ファーストビュー -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">明確な料金表示・返金条件明記・LINE受付対応</div>
+          <h1>LINEから申し込める<br />LP制作サービス</h1>
+          <p>
+            LINEでお申し込み後、初稿作成費
+            <strong>1,000円</strong>をお支払いいただき、ヒアリング内容をもとに
+            ランディングページの初稿を作成します。内容をご確認いただいたうえで、
+            ご希望の方にのみ<strong>LP完成データを10,000円</strong>で販売するサービスです。
+          </p>
+
+          <div class="cta-actions" aria-label="メインCTA">
+            <a href="https://lin.ee/UCROoCJ/" class="btn btn-primary">LINEで申し込む</a>
+            <a href="#pricing" class="btn btn-secondary">料金を確認する</a>
+          </div>
+
+          <div class="hero-note">
+            <div class="hero-note-item">
+              <strong>販売内容が明確</strong>
+              <span>初稿作成と完成データ販売の2段階でご案内します。</span>
+            </div>
+            <div class="hero-note-item">
+              <strong>納期</strong>
+              <span>ヒアリング回答後、1〜3営業日以内に初稿を作成します。</span>
+            </div>
+            <div class="hero-note-item">
+              <strong>お問い合わせ方法</strong>
+              <span>LINE公式アカウントから受け付けています。</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="サービス概要">
+          <h2>サービス概要</h2>
+          <ul class="check-list">
+            <li>LINEから申し込みできるLP制作サービス</li>
+            <li>初稿作成費：1,000円</li>
+            <li>LP完成データ販売：10,000円</li>
+            <li>納品物：HTML / CSS / 画像素材 / 設定マニュアルPDF</li>
+            <li>合法的なWeb制作サービスとして提供</li>
+          </ul>
+
+          <div class="price-mini">
+            <div>
+              <strong>初稿作成費</strong>
+              <span>¥1,000</span>
+            </div>
+            <div>
+              <strong>LP完成データ販売</strong>
+              <span>¥10,000</span>
+            </div>
+          </div>
+
+          <p class="notice" style="margin-top:16px;">
+            ※ 完成データの購入は、初稿内容をご確認後に希望される場合のみご案内します。
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ② サービス説明 -->
+    <section id="service" class="section">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">サービス内容</h2>
+          <p class="section-lead">
+            本サービスは、LINE経由で申し込みできるランディングページ制作サービスです。
+            初稿作成後に内容を確認できるため、必要に応じて完成データの購入をご検討いただけます。
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <div class="card">
+            <h3>申し込みしやすい受付導線</h3>
+            <p>
+              申し込みはLINEから行えます。決済後にヒアリングフォームへ進み、
+              必要情報をご入力いただく流れです。
+            </p>
+          </div>
+          <div class="card">
+            <h3>初稿を確認してから判断</h3>
+            <p>
+              初稿作成費1,000円で、ヒアリング内容をもとにLP初稿を作成します。
+              その後、完成データの購入希望者のみ10,000円でご案内します。
+            </p>
+          </div>
+          <div class="card">
+            <h3>実務で使いやすい納品形式</h3>
+            <p>
+              HTML、CSS、画像素材、設定マニュアルPDFを納品対象とし、
+              ご自身または管理者による設定・運用に活用いただけます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ 制作の流れ -->
+    <section id="flow" class="section" style="background: var(--bg-sub);">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">制作の流れ</h2>
+          <p class="section-lead">
+            申し込みから初稿確認、完成データ購入までの流れを明確にご案内しています。
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div>
+              <h3>LINEから申し込み</h3>
+              <p>
+                LINE公式アカウントからお申し込みいただきます。申し込み前に料金や注意事項をご確認ください。
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">02</div>
+            <div>
+              <h3>初稿作成費1,000円をお支払い</h3>
+              <p>
+                お申し込み後、初稿作成費として1,000円をお支払いいただきます。
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <div>
+              <h3>ヒアリングフォームへ入力</h3>
+              <p>
+                サービス内容、訴求したい内容、掲載素材など、LP制作に必要な情報をご入力いただきます。
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">04</div>
+            <div>
+              <h3>LP初稿を作成</h3>
+              <p>
+                ヒアリング回答後、1〜3営業日以内を目安に初稿を作成します。
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">05</div>
+            <div>
+              <h3>内容確認</h3>
+              <p>
+                作成したLP初稿をご確認いただきます。表現や掲載内容に不備がないかご確認ください。
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">06</div>
+            <div>
+              <h3>希望者にLP完成データを販売</h3>
+              <p>
+                完成データの購入を希望される場合のみ、10,000円でデータを販売します。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ 料金 -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">料金</h2>
+          <p class="section-lead">
+            本サービスの料金は以下の通りです。追加費用の有無は事前に個別案内してください。
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card featured">
+            <span class="price-label">STEP 1</span>
+            <h3>LP初稿作成費</h3>
+            <p class="price">¥1,000 <small>税込表記の要否に応じて調整してください</small></p>
+            <p>
+              LINE申し込み後にお支払いいただく初稿作成費です。ヒアリング内容をもとにLP初稿を作成します。
+            </p>
+            <ul>
+              <li>ヒアリング内容に基づくLP初稿作成</li>
+              <li>ヒアリング回答後1〜3営業日以内に作成</li>
+              <li>制作開始後の返金不可</li>
+            </ul>
+            <a href="https://lin.ee/UCROoCJ/" class="btn btn-primary">LINEで初稿作成を申し込む</a>
+          </div>
+
+          <div class="price-card">
+            <span class="price-label">STEP 2</span>
+            <h3>LP完成データ販売</h3>
+            <p class="price">¥10,000 <small>税込表記の要否に応じて調整してください</small></p>
+            <p>
+              初稿確認後、購入を希望される方に販売する完成データです。
+              購入は任意です。
+            </p>
+            <ul>
+              <li>HTMLランディングページ</li>
+              <li>CSS</li>
+              <li>画像素材</li>
+              <li>設定マニュアルPDF</li>
+              <li>納品後の返金不可</li>
+            </ul>
+            <a href="#delivery" class="btn btn-secondary">納品内容を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ 納品内容 -->
+    <section id="delivery" class="section" style="background: var(--bg-sub);">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">納品内容</h2>
+          <p class="section-lead">
+            完成データ購入者には、以下の制作物を納品します。
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <div class="card">
+            <h3>HTMLランディングページ</h3>
+            <p>
+              ブラウザで表示できるHTML形式のLPデータを納品します。
+            </p>
+          </div>
+          <div class="card">
+            <h3>CSS</h3>
+            <p>
+              デザイン調整に必要なスタイルシートをあわせて納品します。
+            </p>
+          </div>
+          <div class="card">
+            <h3>画像素材</h3>
+            <p>
+              納品対象に含まれる画像素材をお渡しします。使用範囲は別途案内内容に従ってください。
+            </p>
+          </div>
+          <div class="card">
+            <h3>設定マニュアルPDF</h3>
+            <p>
+              設定や公開作業の参考として、マニュアルPDFを納品します。
+            </p>
+          </div>
+        </div>
+
+        <div class="legal-box">
+          <strong>納期：</strong>ヒアリング回答後、<strong>1〜3営業日以内に初稿作成</strong><br />
+          <strong>注意事項：</strong>本サービスはWebページ制作およびデータ販売を行うものであり、
+          広告効果・売上・集客成果等を保証するものではありません。
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ よくある質問 -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">よくある質問</h2>
+          <p class="section-lead">
+            お申し込み前によくあるご質問をまとめています。
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Q. 何を販売しているサービスですか？</h3>
+            <p>
+              LINEから申し込みできるランディングページ制作サービスです。
+              初稿作成費1,000円で初稿を作成し、希望者にのみ完成データを10,000円で販売します。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 完成データの購入は必須ですか？</h3>
+            <p>
+              必須ではありません。初稿をご確認後、購入を希望される場合のみ完成データをご案内します。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 納期はどれくらいですか？</h3>
+            <p>
+              ヒアリング回答後、1〜3営業日以内に初稿を作成します。
+              休業日や確認状況により前後する場合は事前にご案内します。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. どのようなデータが納品されますか？</h3>
+            <p>
+              HTMLランディングページ、CSS、画像素材、設定マニュアルPDFを納品します。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 返金はできますか？</h3>
+            <p>
+              初稿作成費は制作開始後の返金不可、LP購入費は納品後の返金不可です。
+              詳細は返金ポリシーをご確認ください。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 問い合わせ方法を教えてください。</h3>
+            <p>
+              お問い合わせはLINE公式アカウントにて受け付けています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑦ 返金ポリシー -->
+    <section id="refund" class="section" style="background: var(--bg-sub);">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">返金ポリシー</h2>
+          <p class="section-lead">
+            トラブル防止のため、返金条件を明確に掲載しています。
+          </p>
+        </div>
+
+        <div class="policy-wrap">
+          <div class="policy-box">
+            <h3>初稿作成費について</h3>
+            <p>
+              初稿作成費<strong>1,000円</strong>は、制作開始後の返金はできません。
+              お申し込み前にサービス内容をご確認のうえ、お手続きください。
+            </p>
+          </div>
+
+          <div class="policy-box">
+            <h3>LP完成データ購入費について</h3>
+            <p>
+              LP完成データ購入費<strong>10,000円</strong>は、納品後の返金はできません。
+              納品物の内容を確認のうえ、ご購入ください。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑧ お問い合わせ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title">お問い合わせ</h2>
+          <p class="section-lead">
+            本サービスに関するお問い合わせは、LINE公式アカウントよりご連絡ください。
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <p>
+            申し込み前の確認事項、納品内容、対応範囲などについてもLINEからお問い合わせいただけます。
+          </p>
+          <a href="https://lin.ee/UCROoCJ/" class="btn btn-primary">LINE公式アカウントへ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ 特定商取引法リンク -->
+    <section id="legal" class="section-sm">
+      <div class="container">
+        <div class="legal-box">
+          <strong>販売者情報：</strong>
+          販売者情報・役務内容・支払時期・引渡時期・返品特約等は
+          <a href="/tokusho">特定商取引法に基づく表記</a>
+          に掲載しています。お申し込み前に必ずご確認ください。
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-band">
+      <div class="container center">
+        <h2 class="section-title">内容を確認したうえで、LINEから申し込みできます</h2>
+        <p class="section-lead">
+          料金・納期・返金条件を明記した、シンプルなLP制作サービスです。
+        </p>
+        <div class="cta-actions">
+          <a href="https://lin.ee/UCROoCJ/" class="btn btn-primary">LINEで申し込む</a>
+          <a href="/tokusho" class="btn btn-secondary">特定商取引法を確認する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ⑩ フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>LINEから申し込めるLP制作サービス</h3>
+          <p>
+            本サービスは、LINE受付によるランディングページ制作および完成データ販売を行う合法的なWeb制作サービスです。
+            料金、納期、返金条件、お問い合わせ方法を明確に掲載しています。
+          </p>
+        </div>
+        <div>
+          <h3>各種ポリシー</h3>
+          <div class="footer-links">
+            <a href="/tokusho">特定商取引法</a>
+            <a href="/terms">利用規約</a>
+            <a href="/privacy">プライバシーポリシー</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 LINEから申し込めるLP制作サービス. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
