@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI英語コーチング｜3ヶ月でリスニングを劇的改善</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #E8621A;
+      --accent-dark: #C4511A;
+      --dark: #0F1117;
+      --mid: #1C2130;
+      --text: #F0EDE8;
+      --muted: #8A8F9E;
+      --gold: #D4AF6A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Oswald', sans-serif; }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    /* Gradient mesh background */
+    .hero-bg {
+      background: 
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(232,98,26,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(30,50,100,0.2) 0%, transparent 60%),
+        linear-gradient(160deg, #0F1117 0%, #141928 50%, #0F1117 100%);
+    }
+
+    .accent-line {
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background: var(--accent);
+      margin-right: 10px;
+      vertical-align: middle;
+      border-radius: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(232,98,26,0.15);
+      border: 1px solid rgba(232,98,26,0.4);
+      color: #F4A46A;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    .headline-xl {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #E8621A 0%, #C4511A 100%);
+      color: white;
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      padding: 18px 40px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 30px rgba(232,98,26,0.4);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(232,98,26,0.55);
+    }
+    .cta-btn:active { transform: translateY(0); }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(232,98,26,0.3);
+    }
+
+    .step-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(232,98,26,0.2);
+      line-height: 1;
+    }
+
+    .section-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 28px 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #E8621A, #F4A46A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 16px 0;
+    }
+
+    .pain-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      border-left: 3px solid rgba(232,98,26,0.5);
+      background: rgba(232,98,26,0.04);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: rgba(232,98,26,0.15);
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .voice-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+    }
+    .voice-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+      opacity: 0.4;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 0;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: #F0EDE8;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 12px;
+    }
+    .faq-q span.q-label {
+      color: var(--accent);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .faq-a {
+      color: #9A9FAE;
+      line-height: 1.8;
+      padding-left: 30px;
+      font-size: 0.95rem;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(232,98,26,0.4); }
+      70% { box-shadow: 0 0 0 16px rgba(232,98,26,0); }
+      100% { box-shadow: 0 0 0 0 rgba(232,98,26,0); }
+    }
+    .pulse { animation: pulse-ring 2.5s ease infinite; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #F4A46A 0%, #E8621A 50%, #C4511A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gold-text { color: var(--gold); }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HERO SECTION                                                   -->
+<!-- ============================================================ -->
+<section class="hero-bg min-h-screen flex flex-col justify-center relative overflow-hidden">
+  <!-- decorative circles -->
+  <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(232,98,26,0.1);pointer-events:none;"></div>
+  <div style="position:absolute;top:-40px;right:-40px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(232,98,26,0.15);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-5 py-24 relative z-10">
+    <div class="fade-up">
+      <span class="badge">🎯 TOEIC 600点台から脱出する最速ルート</span>
+    </div>
+
+    <h1 class="headline-xl text-3xl md:text-5xl lg:text-6xl mt-8 fade-up delay-1">
+      <span class="gradient-text">1日15分、3ヶ月で</span><br />
+      リスニングが<br class="md:hidden" />
+      <span style="display:inline-block; position:relative;">
+        劇的に変わる
+        <span style="position:absolute;bottom:-4px;left:0;right:0;height:4px;background:linear-gradient(90deg,#E8621A,transparent);border-radius:2px;"></span>
+      </span>
+    </h1>
+
+    <p class="mt-6 text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl fade-up delay-2">
+      「単語は知っているのに聞き取れない」<br />
+      そのジレンマを、AIがあなただけの弱点に合わせて解決します。
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 items-start fade-up delay-3">
+      <a href="#cta" class="cta-btn pulse w-full sm:w-auto">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4-1-4z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        無料で相談する
+      </a>
+      <div class="flex items-center gap-3 text-sm text-gray-400 py-2">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        初回完全無料・クレジットカード不要
+      </div>
+    </div>
+
+    <!-- Hero image -->
+    <div class="mt-14 rounded-2xl overflow-hidden fade-up delay-4" style="border:1px solid rgba(255,255,255,0.07);">
+      <img src="https://via.placeholder.com/900x420?text=AI+English+Coaching+Hero+Image" alt="AI英語コーチングのイメージ" class="w-full object-cover" />
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- EMPATHY / PAIN (共感)                                         -->
+<!-- ============================================================ -->
+<section style="background: linear-gradient(180deg, #0F1117 0%, #141928 100%);" class="py-20">
+  <div class="max-w-3xl mx-auto px-5">
+    <span class="section-tag">PROBLEM — 共感</span>
+    <h2 class="text-2xl md:text-4xl font-black leading-tight">
+      その「伸び悩み」、<br />
+      <span class="gradient-text">あなただけじゃない。</span>
+    </h2>
+    <div class="divider mt-4"></div>
+
+    <p class="text-gray-400 mt-4 leading-relaxed">
+      TOEIC600点台は、英語学習の「踊り場」。単語や文法をある程度こなしているのに、
+      なぜかリスニングスコアだけが上がらない——そんな声が、受講者から最も多く届きます。
+    </p>
+
+    <div class="mt-10 flex flex-col gap-4">
+      <div class="pain-item">
+        <span style="font-size:1.4rem;flex-shrink:0;">😔</span>
+        <div>
+          <p class="font-bold text-white">単語は知っているのに、速すぎて聞き取れない</p>
+          <p class="text-gray-400 text-sm mt-1">知識はあるのに本番では"音"として処理できない、典型的な壁。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span style="font-size:1.4rem;flex-shrink:0;">😫</span>
+        <div>
+          <p class="font-bold text-white">仕事が忙しくて、まとまった学習時間が取れない</p>
+          <p class="text-gray-400 text-sm mt-1">30代会社員が英語に割けるのは、スキマ時間だけ。それが現実。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span style="font-size:1.4rem;flex-shrink:0;">😤</span>
+        <div>
+          <p class="font-bold text-white">市販教材をやっても、自分の弱点がわからない</p>
+          <p class="text-gray-400 text-sm mt-1">一般的な教材は"平均値"向け。あなただけの穴を埋めてくれない。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 card" style="border-left: 4px solid var(--accent); border-radius: 0 16px 16px 0;">
+      <p class="text-lg font-bold text-white leading-relaxed">
+        原因は「努力不足」ではありません。<br />
+        <span class="gradient-text">あなたに合った学習法に出会えていないだけ。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- SOLUTION (提案)                                               -->
+<!-- ============================================================ -->
+<section style="background: #141928;" class="py-20">
+  <div class="max-w-3xl mx-auto px-5">
+    <span class="section-tag">SOLUTION — 提案</span>
+    <h2 class="text-2xl md:text-4xl font-black leading-tight">
+      AIがあなたの弱点を特定し、<br />
+      <span class="gradient-text">最短ルートだけを示す。</span>
+    </h2>
+    <div class="divider mt-4"></div>
+    <p class="text-gray-400 mt-4 leading-relaxed">
+      AI英語コーチングは、最新AIがあなたのリスニングの"つまずきパターン"を診断。
+      ムダな勉強をゼロにして、毎日15分の集中トレーニングで確実に伸ばします。
+    </p>
+
+    <div class="mt-10 grid md:grid-cols-3 gap-5">
+      <div class="card text-center">
+        <div class="step-num">01</div>
+        <h3 class="font-bold text-white mt-2 text-lg">AI診断</h3>
+        <p class="text-gray-400 text-sm mt-2 leading-relaxed">あなたのリスニングの弱点タイプを精密に特定</p>
+      </div>
+      <div class="card text-center">
+        <div class="step-num">02</div>
+        <h3 class="font-bold text-white mt-2 text-lg">パーソナルプラン</h3>
+        <p class="text-gray-400 text-sm mt-2 leading-relaxed">あなた専用の1日15分カリキュラムを自動生成</p>
+      </div>
+      <div class="card text-center">
+        <div class="step-num">03</div>
+        <h3 class="font-bold text-white mt-2 text-lg">継続サポート</h3>
+        <p class="text-gray-400 text-sm mt-2 leading-relaxed">AIコーチが毎日の進捗を管理・フィードバック</p>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(255,255,255,0.07);">
+      <img src="https://via.placeholder.com/800x360?text=App+Dashboard+Screenshot" alt="AIコーチングアプリのダッシュボード画面" class="w-full object-cover" />
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- BENEFIT (ベネフィット)                                         -->
+<!-- ============================================================ -->
+<section style="background: linear-gradient(180deg, #141928 0%, #0F1117 100%);" class="py-20">
+  <div class="max-w-3xl mx-auto px-5">
+    <span class="section-tag">BENEFIT — ベネフィット</span>
+    <h2 class="text-2xl md:text-4xl font-black leading-tight">
+      3ヶ月後、あなたはこう変わる。
+    </h2>
+    <div class="divider mt-4"></div>
+
+    <div class="mt-10 flex flex-col gap-5">
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="font-bold text-white text-lg">リスニングスコアが最大150点UP</p>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">受講者の平均スコア伸び幅は3ヶ月で+142点。600点台→750点台も夢ではありません。</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="font-bold text-white text-lg">忙しくても1日15分で継続できる</p>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">通勤・昼休み・就寝前。スキマ時間を「最高効率の学習時間」に変えます。</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="font-bold text-white text-lg">英語が「音」として自然に入ってくる感覚</p>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">英語を「翻訳」せずに直接理解できる、真のリスニング力が身につきます。</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="font-bold text-white text-lg">昇進・転職・海外業務に自信を持って挑める</p>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">スコアだけでなく、ビジネスシーンで実際に使える英語力が手に入ります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- TRUST (信頼)                                                   -->
+<!-- ============================================================ -->
+<section style="background:#0F1117;" class="py-20">
+  <div class="max-w-4xl mx-auto px-5">
+    <span class="section-tag">TRUST — 実績・信頼</span>
+    <h2 class="text-2xl md:text-4xl font-black leading-tight">
+      受講者1,000人が証明する<br />
+      <span class="gradient-text">圧倒的な結果</span>
+    </h2>
+    <div class="divider mt-4"></div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-4 mt-10">
+      <div class="stat-card">
+        <div class="stat-num">1,000<span style="font-size:1.5rem;">人+</span></div>
+        <p class="text-gray-400 text-xs mt-2 font-medium">受講者数</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">98<span style="font-size:1.5rem;">%</span></div>
+        <p class="text-gray-400 text-xs mt-2 font-medium">満足度</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">+142</div>
+        <p class="text-gray-400 text-xs mt-2 font-medium">平均スコア伸び幅</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="mt-14">
+      <h3 class="text-xl font-bold text-white mb-8">受講者の声</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="voice-card">
+          <div class="flex items-center gap-3 mt-6 mb-4">
+            <img src="https://via.placeholder.com/52x52?text=K.T" alt="受講者 K.Tさん" class="rounded-full" style="border:2px solid rgba(232,98,26,0.4);" />
+            <div>
+              <p class="font-bold text-white text-sm">K.T さん（36歳・営業職）</p>
+              <div style="color:#D4AF6A;font-size:0.85rem;">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            3ヶ月でTOEIC 620→780点に。1日15分なのに続けられる仕組みが本当によくできていて、
+            気づいたら英語が聞こえるようになっていました。
+          </p>
+          <div class="mt-3 inline-flex items-center gap-2 text-xs text-orange-400 font-bold bg-orange-900 bg-opacity-30 px-3 py-1 rounded-full">
+            <span>+160点達成</span>
+          </div>
+        </div>
+
+        <div class="voice-card">
+          <div class="flex items-center gap-3 mt-6 mb-4">
+            <img src="https://via.placeholder.com/52x52?text=M.S" alt="受講者 M.Sさん" class="rounded-full" style="border:2px solid rgba(232,98,26,0.4);" />
+            <div>
+              <p class="font-bold text-white text-sm">M.S さん（33歳・IT職）</p>
+              <div style="color:#D4AF6A;font-size:0.85rem;">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            残業続きでまとまった時間がなく諦めていましたが、通勤15分だけで本当に変わりました。
+            AIが自分の苦手を正確に把握してくれているのがわかります。
+          </p>
+          <div class="mt-3 inline-flex items-center gap-2 text-xs text-orange-400 font-bold bg-orange-900 bg-opacity-30 px-3 py-1 rounded-full">
+            <span>+130点達成</span>
+          </div>
+        </div>
+
+        <div class="voice-card md:col-span-2">
+          <div class="flex items-center gap-3 mt-6 mb-4">
+            <img src="https://via.placeholder.com/52x52?text=Y.N" alt="受講者 Y.Nさん" class="rounded-full" style="border:2px solid rgba(232,98,26,0.4);" />
+            <div>
+              <p class="font-bold text-white text-sm">Y.N さん（39歳・管理職）</p>
+              <div style="color:#D4AF6A;font-size:0.85rem;">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            英語の会議でずっと聞き取れないまま参加していたのが悩みでした。
+            AIコーチングを始めて2ヶ月目から、会議の内容がクリアに聞こえるように。
+            海外のクライアントに自信を持って対応できるようになりました。
+          </p>
+          <div class="mt-3 inline-flex items-center gap-2 text-xs text-orange-400 font-bold bg-orange-900 bg-opacity-30 px-3 py-1 rounded-full">
+            <span>+145点達成</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- OFFER / PRICING                                               -->
+<!-- ============================================================ -->
+<section style="background: linear-gradient(160deg, #141928 0%, #0F1117 100%);" class="py-20">
+  <div class="max-w-2xl mx-auto px-5">
+    <span class="section-tag">OFFER — 今すぐ始める</span>
+    <h2 class="text-2xl md:text-4xl font-black leading-tight">
+      期間限定、<span class="gradient-text">30%OFF</span>で<br />
+      今すぐスタートできる。
+    </h2>
+    <div class="divider mt-4"></div>
+
+    <div class="mt-10 card" style="border: 1.5px solid rgba(232,98,26,0.4); position:relative; overflow:hidden;">
+      <!-- ribbon -->
+      <div style="position:absolute;top:16px;right:-28px;background:var(--accent);color:white;font-size:0.7rem;font-weight:900;padding:6px 40px;transform:rotate(45deg);letter-spacing:0.05em;">期間限定</div>
+
+      <div class="flex items-center gap-3 mb-6">
+        <span class="badge">🔥 現在受付中</span>
+      </div>
+
+      <div class="mb-6">
+        <p class="text-gray-400 text-sm line-through mb-1">通常価格 ¥29,800 / 月</p>
+        <div class="flex items-end gap-3">
+          <span class="text-5xl font-black gradient-text">¥20,860</span>
+          <span class="text-gray-400 mb-2">/ 月（税込）</span>
+        </div>
+        <p class="text-orange-400 text-sm font-bold mt-1">▶ 30%OFFは今だけ！</p>
+      </div>
+
+      <div class="flex flex-col gap-3 mb-8">
+        <div class="check-item">
+          <div class="check-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="text-gray-300 text-sm">AIパーソナル診断（通常¥5,000 → 無料）</p>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="text-gray-300 text-sm">専任コーチによる初回カウンセリング（60分）</p>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="text-gray-300 text-sm">3ヶ月間の学習プログラム一式</p>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="#E8621A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="text-gray-300 text-sm">毎日のAIフィードバック＆進捗管理</p>
+        </div>
+      </div>
+
+      <a id="cta" href="#" class="cta-btn w-full pulse">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4-1-4z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        無料で相談する
+      </a>
+
+      <p class="text-center text-gray-500 text-xs mt-4">
+        ※ 初回カウンセリングは完全無料。費用は一切かかりません。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- FAQ                                                           -->
+<!-- ============================================================ -->
+<section style="background:#0F1117;" class="py-20">
+  <div class="max-w-2xl mx-auto px-5">
+    <span class="section-tag">FAQ — よくある質問</span>
+    <h2 class="text-2xl md:text-3xl font-black">よくある質問</h2>
+    <div class="divider mt-4 mb-8"></div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q.</span>本当に1日15分で効果が出ますか？</div>
+      <div class="faq-a">はい。AIが弱点に絞った最適問題だけを出題するため、時間あたりの学習効率が従来の教材と比べて大幅に高くなります。受講者データでも、1日15〜20分の学習で3ヶ月以内にスコアが伸びたケースが全体の91%を占めています。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q.</span>英語が苦手でも大丈夫ですか？</div>
+      <div class="faq-a">TOEIC 500点以上の方であれば問題なくご受講いただけます。AIが現在のレベルに合わせて問題の難易度を自動調整するため、苦手意識のある方も安心してスタートできます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q.</span>無料カウンセリングだけで終わることはできますか？</div>
+      <div class="faq-a">もちろんです。無料カウンセリングは、あなたの現状と課題をヒアリングするためのもので、その後の契約を強要することは一切ありません。納得いただいた上でご判断ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q.</span>途中で解約はできますか？</div>
+      <div class="faq-a">月額制のため、いつでも解約可能です。解約後も当月末日まではサービスをご利用いただけます。</div>
+    </div>
+    <div class="faq-item" style="border-bottom:none;">
+      <div class="faq-q"><span class="q-label">Q.</span>スマートフォンだけで受講できますか？</div>
+      <div class="faq-a">はい、専用アプリ（iOS / Android対応）でスマートフォン1台あれば受講できます。通勤中や外出先でもそのままご利用いただけます。</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- FINAL CTA                                                     -->
+<!-- ============================================================ -->
+<section style="background: linear-gradient(160deg, #1C2130 0%, #0F1117 100%);" class="py-24">
+  <div class="max-w-2xl mx-auto px-5 text-center">
+    <span class="badge mx-auto">🎁 今なら30%OFFで始められます</span>
+    <h2 class="text-2xl md:text-4xl font-black mt-8 leading-tight">
+      今日の一歩が、<br />
+      <span class="gradient-text">3ヶ月後の自分を変える。</span>
+    </h2>
+    <p class="text-gray-400 mt-5 leading-relaxed">
+      無料カウンセリングは60分。あなたの悩みを聞かせてください。<br />
+      最適なプランをご提案します。費用は一切かかりません。
+    </p>
+    <div class="mt-10">
+      <a href="#" class="cta-btn pulse text-lg px-12 py-5">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4-1-4z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        無料で相談する
+      </a>
+    </div>
+    <p class="text-gray-600 text-xs mt-5">初回カウンセリング無料 · クレジットカード不要 · いつでも解約可能</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                        -->
+<!-- ============================================================ -->
+<footer style="background:#080B11; border-top: 1px solid rgba(255,255,255,0.05);" class="py-10">
+  <div class="max-w-4xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+    <p class="font-bold text-white">AI英語コーチング</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-gray-300 transition-colors">特定商取引法に基づく表記</a>
+      <a href="#" class="hover:text-gray-300 transition-colors">プライバシーポリシー</a>
+      <a href="#" class="hover:text-gray-300 transition-colors">お問い合わせ</a>
+    </div>
+    <p>© 2025 AI英語コーチング</p>
+  </div>
+</footer>
+
+<!-- Sticky CTA bar (mobile) -->
+<div class="sticky-cta md:hidden">
+  <a href="#cta" class="cta-btn w-full max-w-sm text-base py-4">
+    無料で相談する → 今すぐ申し込む
+  </a>
+</div>
+
+</body>
+</html>
